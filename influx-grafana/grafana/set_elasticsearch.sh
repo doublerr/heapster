@@ -9,9 +9,8 @@ fi
 
 if [ -n "${ELASTICSEARCH_HOST}" ] && [ -n "${ELASTICSEARCH_PORT}" ]; then
     echo "=> Found Elasticsearch settings."
-    ip=${ELASTICSEARCH_HOST}
+    ip=${ELASTICSEARCH_HOST:-"localhost"}
     if [ "$ip" = "localhost" ]; then
-	ip=$(curl "http://metadata/computeMetadata/v1/instance/network-interfaces/0/access-configs/0/external-ip" -H "X-Google-Metadata-Request: True")
     fi
     if [ -n "${ELASTICSEARCH_USER}" ] && [ -n "${ELASTICSEARCH_PASS}" ]; then
         echo "=> Set Elasticsearch url to \"${ELASTICSEARCH_PROTO}://${ELASTICSEARCH_USER}:${ELASTICSEARCH_PASS}@$ip:${ELASTICSEARCH_PORT}\"."
