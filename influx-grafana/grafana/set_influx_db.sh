@@ -6,7 +6,7 @@ if [ -f /.influx_db_configured ]; then
     exit 0
 fi
 
-dbIP=${INFLUXDB_MASTER:-"localhost"}
+dbIP=${INFLUXDB_HOST:-"localhost"}
 if [ "$dbIP" = "localhost" ]; then
     dbIP="localhost"
 elif [ "$dbIP" = "**ChangeMe**" ]; then
