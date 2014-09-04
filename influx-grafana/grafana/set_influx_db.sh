@@ -8,6 +8,7 @@ fi
 
 dbIP=${INFLUXDB_MASTER:-"localhost"}
 if [ "$dbIP" = "localhost" ]; then
+    dbIP="localhost"
 elif [ "$dbIP" = "**ChangeMe**" ]; then
     echo "=> No address of InfluxDB is specified!"
     echo "=> Program terminated!"

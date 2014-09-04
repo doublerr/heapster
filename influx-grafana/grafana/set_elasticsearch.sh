@@ -11,6 +11,7 @@ if [ -n "${ELASTICSEARCH_HOST}" ] && [ -n "${ELASTICSEARCH_PORT}" ]; then
     echo "=> Found Elasticsearch settings."
     ip=${ELASTICSEARCH_HOST:-"localhost"}
     if [ "$ip" = "localhost" ]; then
+        ip="localhost"
     fi
     if [ -n "${ELASTICSEARCH_USER}" ] && [ -n "${ELASTICSEARCH_PASS}" ]; then
         echo "=> Set Elasticsearch url to \"${ELASTICSEARCH_PROTO}://${ELASTICSEARCH_USER}:${ELASTICSEARCH_PASS}@$ip:${ELASTICSEARCH_PORT}\"."
